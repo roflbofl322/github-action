@@ -1,0 +1,42 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'  # Triggers on tags like v1.0.0, v1.0.1, etc.
+
+jobs:
+  build-and-release:
+    runs-on: self-hosted
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Create build directory
+      run: mkdir -p build
+    
+    - name: Configure CMake
+      run: cmake -B build
+    
+    - name: Build project
+      run: cmake --build build
+    
+    - name: Test executable
+      run: ./build/hello_world
+    
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: build/hello_world
+        body: |
+          ## Hello World Release
+          
+          Automated build of Hello World program.
+          
+          **Changes in this version:**
+          - Built from commit ${{ github.sha }}
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
