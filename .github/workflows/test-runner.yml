@@ -1,0 +1,29 @@
+name: Test Self-Hosted Runner
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:  # Allows manual trigger from GitHub UI
+
+jobs:
+  test:
+    runs-on: self-hosted
+    
+    steps:
+    - name: Print hostname
+      run: hostname
+    
+    - name: Print current user
+      run: whoami
+    
+    - name: Print working directory
+      run: pwd
+    
+    - name: List files
+      run: ls -la
+    
+    - name: Check system info
+      run: uname -a
+    
+    - name: Success message
+      run: echo "🎉 Self-hosted runner is working!"
