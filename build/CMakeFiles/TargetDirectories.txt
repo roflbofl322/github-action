@@ -1,3 +1,0 @@
-/home/elliot/Desktop/githubActions/build/CMakeFiles/hello_world.dir
-/home/elliot/Desktop/githubActions/build/CMakeFiles/edit_cache.dir
-/home/elliot/Desktop/githubActions/build/CMakeFiles/rebuild_cache.dir

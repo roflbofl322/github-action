@@ -3,10 +3,10 @@ build/
 cmake-build-*/
 
 # CMake generated files
-CMakeCache.txt
-CMakeFiles/
-cmake_install.cmake
-Makefile
+#CMakeCache.txt
+#CMakeFiles/
+#cmake_install.cmake
+#Makefile
 
 # Compiled executables
 *.exe
